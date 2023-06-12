@@ -1,0 +1,21 @@
+const mongoose = require('mongoose')
+
+const reviewSchema = new mongoose.Schema({
+    user: { type: mongoose.Schema.Types.ObjectId,
+        ref: "Users",},//relation between review and student
+
+    course: { type: mongoose.Schema.Types.ObjectId,
+        ref: "Courses",},//relation between review and course
+
+    rate : {type: Number,},
+
+    comment : {type: String,},
+
+    likes : {type: Number,},
+
+}, {
+    timestamps: true
+})
+
+module.exports = mongoose.model("Reviews", reviewSchema)
+

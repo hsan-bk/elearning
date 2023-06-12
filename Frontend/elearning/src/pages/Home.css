@@ -1,0 +1,72 @@
+
+.welcome-section {
+    background-image: url('../assets/home1.jpg');
+    background-size: cover;
+    margin-top: -100px;
+    height: 120vh;
+    width: 100%;
+  }
+  .welcome{
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .welcome_text{
+    margin-top: 60px;
+    margin-left: 20px;
+    font-size: 40px;
+    font-family:sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.2;
+    max-width: 500px;
+  }
+
+  .welcome_img{
+    margin-top: 50px;
+    margin-right: -40px;
+  }
+
+  .search input {
+    padding: 7px 10%;
+    border-radius: 20px;
+    width: 500px;
+    height: 60px;
+  }
+  .search {
+    border: 1px solid #17bf9d44;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .stat{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px;
+  }
+
+  .tag_title{
+display: flex;
+justify-content: space-around;
+margin-top: 30px;
+  }
+  .tag_card{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+      }
+
+  .course_title{
+display: flex;
+justify-content: space-around;
+margin-top: 30px;
+  }
+  .course_card{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+      }
+
+  

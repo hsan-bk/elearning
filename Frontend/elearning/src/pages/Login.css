@@ -1,0 +1,15 @@
+.login_container{
+    width: 100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    background-image: url('../assets/home1.jpg');
+    background-size: cover;
+    margin-top: -100px;
+    height: 120vh;
+}
+.login_detail{
+    width: 100%;
+    padding: 20px;
+    display: grid;
+}

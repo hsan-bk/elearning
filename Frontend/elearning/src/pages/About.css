@@ -1,0 +1,15 @@
+
+.about_us{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url('../assets/home1.jpg');
+    background-size: cover;
+    margin-top: -110px;
+    height: 120vh;
+}
+
+.about_img{
+  border-radius: 20px;
+}
+
