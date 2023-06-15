@@ -11,7 +11,7 @@ const opts = {
 passport.use(
     new JwtStrategy(opts, async (jwt_payload, done)=>{
         try {
-            const user = await User.findOne({_id: jwt_payload._id}).select("-password");
+            const user = await User.findOne({_id: jwt_payload._id}).select("");
             user ? done(null, user) : done(null, false); 
         } catch (error) {
             console.log(error);

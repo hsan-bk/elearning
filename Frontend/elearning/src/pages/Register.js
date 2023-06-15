@@ -45,11 +45,11 @@ const navigate=useNavigate();
           <p>Which option would you like to choose?</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleOption1}>
-            Option 1
+          <Button variant="primary" onClick={(e)=>{handleOption1();setregister({...register, role:e.target.value='student'})} } >
+            Student
           </Button>
-          <Button variant="secondary" onClick={handleOption2}>
-            Option 2
+          <Button variant="secondary" onClick={(e)=>{handleOption2();setregister({...register, role:e.target.value='instructor'})} }>
+            Instructor
           </Button>
         </Modal.Footer>
       </Modal>

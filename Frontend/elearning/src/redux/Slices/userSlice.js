@@ -30,6 +30,45 @@ export const userCurrent = createAsyncThunk("user/current", async ()=>{
   }
 });
 
+//get all
+export const getall_user= createAsyncThunk("user/get_all", async()=>{
+  try {
+      let result= axios.get("http://localhost:5000/user/all_info");
+      return result;
+  } catch (error) {
+      console.log(error)
+  }
+})
+
+//get one
+export const getone_user= createAsyncThunk("user/get_one", async(id)=>{
+  try {
+      let result= axios.get(`http://localhost:5000/user/info/${id}`);
+      return result;
+  } catch (error) {
+      console.log(error)
+  }
+})
+
+//delete
+export const deleteuser = createAsyncThunk("user/delete", async (id) => {
+try {
+  let result = axios.delete(`http://localhost:5000/user/delete/${id}`);
+  return result;
+} catch (error) {
+  console.log(error);
+}
+});
+
+//update
+export const edituser = createAsyncThunk("user/edit", async ({id, edited}) => {
+try {
+  let result = axios.put(`http://localhost:5000/user/update/${id}`, edited);
+  return result;
+} catch (error) {
+  console.log(error);
+}
+});
 const initialState = {
 user: null,
 status: null,
@@ -78,7 +117,49 @@ export const userSlice = createSlice({
 },
 [userCurrent.rejected]:(state)=>{
     state.status="fail";
-}
+},
+
+[getall_user.pending]:(state)=>{
+  state.status="pending";
+},
+[getall_user.fulfilled]:(state,action)=>{
+  state.status="successsss";
+  state.user= action.payload.data.allusers;
+},
+[getall_user.rejected]:(state)=>{
+  state.status="fail";
+},
+
+[getone_user.pending]:(state)=>{
+  state.status="pending";
+},
+[getone_user.fulfilled]:(state,action)=>{
+  state.status="successsss";
+  state.user= action.payload.data.oneuser;
+},
+[getone_user.rejected]:(state)=>{
+  state.status="fail";
+},
+
+[deleteuser.pending]:(state)=>{
+  state.status="pending";
+},
+[deleteuser.fulfilled]:(state,action)=>{
+  state.status="successsss";
+},
+[deleteuser.rejected]:(state)=>{
+  state.status="fail";
+},
+
+[edituser.pending]:(state)=>{
+  state.status="pending";
+},
+[edituser.fulfilled]:(state,action)=>{
+  state.status="successsss";
+},
+[edituser.rejected]:(state)=>{
+  state.status="fail";
+},
   },
   
 })

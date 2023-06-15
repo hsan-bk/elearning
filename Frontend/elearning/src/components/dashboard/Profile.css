@@ -1,13 +1,26 @@
 .welcome_user{
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: aqua;
+    justify-content:space-between;
+    align-items:center;
+    background-color: #5f5fbb;
     -webkit-box-shadow: 1px 9px 23px -9px rgba(0,0,0,0.59);
 -moz-box-shadow: 1px 9px 23px -9px rgba(0,0,0,0.59);
 box-shadow: 1px 9px 23px -9px rgba(0,0,0,0.59);
-
 }
-
+.profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info h2{
+    color: #5f5fbb;
+}
+.profile_conatainer h4{
+    color: #5f5fbb;
+}
+.avatar img{
+    width: 250px;
+    height: 250px;
+} 
 

@@ -1,26 +1,22 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { logout } from '../../redux/Slices/userSlice';
+import { useSelector } from 'react-redux';
 import DashboardStudent from './DashboardStudent';
 import DashboardAdmin from './DashboardAdmin';
 import DashboardInstrutor from './DashboardInstrutor';
 import './Profile.css'
 
-function Profile() {
+function Profile({ ping, setping }) {
     const user= useSelector((state)=> state.user.user);
     console.log(user)
-    const navigate=useNavigate();
-    const dispatch=useDispatch();
 
     const renderDashboard = () => {
         if (user) {
           if (user.role === 'student') {
-            return <DashboardStudent student={user}/>;
+            return <DashboardStudent student={user} ping={ping} setping={setping}  />;
           } else if (user.role === 'admin') {
-            return <DashboardAdmin admin={user}/>;
+            return <DashboardAdmin admin={user} ping={ping} setping={setping}/>;
           } else if (user.role === 'instructor') {
-            return <DashboardInstrutor instructor={user}/>;
+            return <DashboardInstrutor instructor={user} ping={ping} setping={setping}/>;
           }
         }
         return null;
@@ -28,11 +24,6 @@ function Profile() {
 
   return (
     <div>
-        <div className='welcome_user'>
-        <h1>Pro Academy</h1>
-        <h1>Welcome again {user?user.name:<h1>...Loading</h1>}</h1>
-        <button className="btn_logout" onClick={()=>{dispatch(logout());navigate("/login")}}>logout</button>
-        </div>
         <div>
         {renderDashboard()}
         </div>

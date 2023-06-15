@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import './Navigation.css'
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png'
 
 function Navigation() {
   const [scroll, setScroll] = useState(false);
@@ -36,7 +37,7 @@ function Navigation() {
         style={{ transition: 'background-color 0.5s, color 0.5s' }}
       >
         <Container>
-          <Navbar.Brand href="/">Pro Academy</Navbar.Brand>
+          <Navbar.Brand href="/"><img src={logo} alt='logo' style={{width:'250px', height:'50px'}}/></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto" style={{marginLeft:'100px'}}>
