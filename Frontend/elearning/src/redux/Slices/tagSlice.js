@@ -77,7 +77,7 @@ export const tagSlice = createSlice({
     //state get one
     [getone_tag.fulfilled]: (state, action) => {
         state.status = "success";
-        state.userList = action.payload.data.onetag;},
+        state.tagList = action.payload.data.onetag;},
     [getone_tag.pending]: (state) => {
         state.status = "pending";
       },

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
@@ -7,14 +7,20 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteuser, logout } from '../../redux/Slices/userSlice';
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.png';
 import Myprofile from './my profile/Myprofile';
 import Editprofile from './my profile/Editprofile';
-// import UpdatPassword from './my profile/UpdatPassword';
+import ListCoursesAdmin from './my profile/admin/ListCoursesAdmin';
+import ListStudentsAdmin from './my profile/admin/ListStudentsAdmin';
+import ListTeachersAdmin from './my profile/admin/ListTeachersAdmin';
+// import { useEffect} from 'react';
 
-function DashboardAdmin({admin, ping, setping}) {
+
+function DashboardAdmin({admin, ping, setping, courses , allusers}) {
   const navigate=useNavigate();
   const dispatch=useDispatch();
+
+
   return (
     <div style={{backgroundColor:'#e3e5eb'}}>
       <header className='welcome_user'>
@@ -51,10 +57,13 @@ function DashboardAdmin({admin, ping, setping}) {
               <Nav.Link eventKey="first">my profile</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="2">My courses</Nav.Link>
+              <Nav.Link eventKey="2">All courses</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="3">more courses</Nav.Link>
+              <Nav.Link eventKey="3.1">All students</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="3.2">All instructors</Nav.Link>
             </Nav.Item>
               <br/>
               <br/>  
@@ -66,7 +75,7 @@ function DashboardAdmin({admin, ping, setping}) {
               <Nav.Link eventKey="5">change password</Nav.Link>
             </Nav.Item> */}
             <Nav.Item>
-              <Nav.Link eventKey="6" onClick={()=>{dispatch(logout());navigate("/login")}}>logout</Nav.Link>
+              <Nav.Link eventKey="5" onClick={()=>{dispatch(logout());navigate("/login")}}>logout</Nav.Link>
             </Nav.Item>
             
           </Nav>
@@ -75,8 +84,9 @@ function DashboardAdmin({admin, ping, setping}) {
         <Col className='content' sm={8}>
           <Tab.Content style={{ width:'100%', marginTop:'30px', borderRadius:'20px', backgroundColor:'#f7f9fc'}}>
             <Tab.Pane eventKey="first"><div style={{padding:'10px'}}><Myprofile user={admin} /></div></Tab.Pane>
-            <Tab.Pane eventKey="2"><div style={{padding:'10px'}}>22222</div></Tab.Pane>
-            <Tab.Pane eventKey="3"><div style={{padding:'10px'}}>333333</div></Tab.Pane>
+            <Tab.Pane eventKey="2"><div style={{padding:'10px'}}><ListCoursesAdmin courses={courses} ping={ping} setping={setping}/></div></Tab.Pane>
+            <Tab.Pane eventKey="3.1"><div style={{padding:'10px'}}><ListStudentsAdmin allusers={allusers} ping={ping} setping={setping}/></div></Tab.Pane>
+            <Tab.Pane eventKey="3.2"><div style={{padding:'10px'}}><ListTeachersAdmin allusers={allusers} ping={ping} setping={setping}/></div></Tab.Pane>
             <Tab.Pane eventKey="4"><div style={{padding:'10px'}}><Editprofile user={admin} ping={ping} setping={setping}/></div></Tab.Pane>
             {/* <Tab.Pane eventKey="5"><div style={{padding:'10px'}}><UpdatPassword user={admin} /></div></Tab.Pane> */}
           </Tab.Content>

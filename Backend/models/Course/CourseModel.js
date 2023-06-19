@@ -7,9 +7,9 @@ const courseSchema = new mongoose.Schema(
     name: { type: String, 
         required: true, },
     
-    instructor: {type: mongoose.Schema.Types.ObjectId, 
+    instructor: {type: String,
         required: true,
-        ref: "Users", //relation between the course and the instructor
+         //relation between the course and the instructor
         },
     
     image: { type: String,
@@ -26,7 +26,7 @@ const courseSchema = new mongoose.Schema(
         type: String,},],
     
     audience: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: "Users",},],//relation between course and the student
     
     requires: [{

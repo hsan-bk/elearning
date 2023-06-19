@@ -124,7 +124,7 @@ export const userSlice = createSlice({
 },
 [getall_user.fulfilled]:(state,action)=>{
   state.status="successsss";
-  state.user= action.payload.data.allusers;
+  state.userlist= action.payload?.data.allusers;
 },
 [getall_user.rejected]:(state)=>{
   state.status="fail";
@@ -135,7 +135,7 @@ export const userSlice = createSlice({
 },
 [getone_user.fulfilled]:(state,action)=>{
   state.status="successsss";
-  state.user= action.payload.data.oneuser;
+  state.userlist= action.payload?.data.oneuser;
 },
 [getone_user.rejected]:(state)=>{
   state.status="fail";

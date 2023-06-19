@@ -77,7 +77,7 @@ export const courseSlice = createSlice({
     //state get one
     [getone_course.fulfilled]: (state, action) => {
         state.status = "success";
-        state.userList = action.payload.data.onecourse;},
+        state.courseList = action.payload.data.onecourse;},
     [getone_course.pending]: (state) => {
         state.status = "pending";
       },
@@ -108,11 +108,11 @@ export const courseSlice = createSlice({
       },
 
 //state update
-      [editcourse.fulfilled]: (state, action) => {
-        state.status = "success";
-      },
       [editcourse.pending]: (state) => {
         state.status = "pending";
+      },
+      [editcourse.fulfilled]: (state, action) => {
+        state.status = "success";
       },
       [editcourse.rejected]: (state) => {
         state.status = "rejected";

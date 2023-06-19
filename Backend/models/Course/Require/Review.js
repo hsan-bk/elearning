@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 
 const reviewSchema = new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId,
-        ref: "Users",},//relation between review and student
+    user_name: { type: String,},
+
+    user_avatar: { type: String,},
 
     course: { type: mongoose.Schema.Types.ObjectId,
         ref: "Courses",},//relation between review and course

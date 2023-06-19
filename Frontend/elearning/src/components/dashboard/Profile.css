@@ -3,15 +3,17 @@
     display: flex;
     justify-content:space-between;
     align-items:center;
-    background-color: #5f5fbb;
-    -webkit-box-shadow: 1px 9px 23px -9px rgba(0,0,0,0.59);
+    /* background-color: #5f5fbb; */
+    background-image: url('../../assets/home1.jpg');
+    /* -webkit-box-shadow: 1px 9px 23px -9px rgba(0,0,0,0.59);
 -moz-box-shadow: 1px 9px 23px -9px rgba(0,0,0,0.59);
-box-shadow: 1px 9px 23px -9px rgba(0,0,0,0.59);
+box-shadow: 1px 9px 23px -9px rgba(0,0,0,0.59); */
 }
 .profile{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    width: 80%;
 }
 .info h2{
     color: #5f5fbb;
@@ -24,3 +26,20 @@ box-shadow: 1px 9px 23px -9px rgba(0,0,0,0.59);
     height: 250px;
 } 
 
+
+.course-list{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  .course-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1em;
+    border-radius: 8px;
+    box-shadow: -1px 0px 5px 4px rgba(212,212,212,0.5);
+    margin-top: 10px;
+  }

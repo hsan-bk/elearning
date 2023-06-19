@@ -10,9 +10,11 @@ import { deleteuser, logout } from '../../redux/Slices/userSlice';
 import logo from '../../assets/logo.png'
 import Myprofile from './my profile/Myprofile';
 import Editprofile from './my profile/Editprofile';
+import MyCoursesInstructor from './my profile/courses/instructor/MyCoursesInstructor';
+import AddCourseInstructor from './my profile/courses/instructor/AddCourseInstructor';
 // import UpdatPassword from './my profile/UpdatPassword';
 
-function DashboardInstrutor({instructor, ping, setping}) {
+function DashboardInstrutor({instructor, ping, setping, courses}) {
   const navigate=useNavigate();
   const dispatch=useDispatch();
   return (
@@ -54,7 +56,7 @@ function DashboardInstrutor({instructor, ping, setping}) {
               <Nav.Link eventKey="2">My courses</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="3">more courses</Nav.Link>
+              <Nav.Link eventKey="3">Add Course</Nav.Link>
             </Nav.Item>
               <br/>
               <br/>  
@@ -75,8 +77,8 @@ function DashboardInstrutor({instructor, ping, setping}) {
         <Col className='content' sm={8}>
           <Tab.Content style={{ width:'100%', marginTop:'30px', borderRadius:'20px', backgroundColor:'#f7f9fc'}}>
             <Tab.Pane eventKey="first"><div style={{padding:'10px'}}><Myprofile user={instructor} /></div></Tab.Pane>
-            <Tab.Pane eventKey="2"><div style={{padding:'10px'}}>22222</div></Tab.Pane>
-            <Tab.Pane eventKey="3"><div style={{padding:'10px'}}>333333</div></Tab.Pane>
+            <Tab.Pane eventKey="2"><div style={{padding:'10px'}}><MyCoursesInstructor courses={courses} ping={ping} setping={setping} user={instructor}/></div></Tab.Pane>
+            <Tab.Pane eventKey="3"><div style={{padding:'10px'}}><AddCourseInstructor ping={ping} setping={setping} user={instructor}/></div></Tab.Pane>
             <Tab.Pane eventKey="4"><div style={{padding:'10px'}}><Editprofile user={instructor} ping={ping} setping={setping}/></div></Tab.Pane>
             {/* <Tab.Pane eventKey="5"><div style={{padding:'10px'}}><UpdatPassword user={instructor} /></div></Tab.Pane> */}
           </Tab.Content>

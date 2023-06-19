@@ -10,17 +10,19 @@ import { deleteuser, logout } from '../../redux/Slices/userSlice';
 import logo from '../../assets/logo.png'
 import Myprofile from './my profile/Myprofile';
 import Editprofile from './my profile/Editprofile';
+import Listmycourses from './my profile/courses/student/mycourses/Listmycourses';
+import Listmorecourses from './my profile/courses/student/morecourses/Listmorecourses';
 // import UpdatPassword from './my profile/UpdatPassword';
 
-function DashboardStudent({student, ping, setping}) {
+function DashboardStudent({student, ping, setping ,courses}) {
   const navigate=useNavigate();
   const dispatch=useDispatch();
  
   return (
     <div style={{backgroundColor:'#e3e5eb'}}>
-      <header className='welcome_user'>
+      <header className='welcome_user' >
         <img src={logo} alt='logo' style={{width:'250px', height:'50px', paddingLeft:'20px'}}/>
-        <h2 style={{color:'white'}}>Dashboard {student?student.name:<h2>...Loading</h2>} </h2>
+        <h2 style={{color:'black'}}>Dashboard {student?student.name:<h2>...Loading</h2>} </h2>
           <Dropdown style={{paddingRight:'20px'}}>
             <Dropdown.Toggle  id="dropdown-basic" style={{backgroundColor:'transparent', border:'none'}}>
               <img src={student.avatar} alt='avatar' style={{width:'50px', height:'50px', borderRadius:'50%'}} /> 
@@ -76,8 +78,8 @@ function DashboardStudent({student, ping, setping}) {
         <Col className='content' sm={8}>
           <Tab.Content style={{ width:'100%', marginTop:'30px', borderRadius:'20px', backgroundColor:'#f7f9fc'}}>
             <Tab.Pane eventKey="first"><div style={{padding:'10px'}}><Myprofile user={student} /></div></Tab.Pane>
-            <Tab.Pane eventKey="2"><div style={{padding:'10px'}}>22222</div></Tab.Pane>
-            <Tab.Pane eventKey="3"><div style={{padding:'10px'}}>333333</div></Tab.Pane>
+            <Tab.Pane eventKey="2"><div style={{padding:'10px'}}><Listmycourses user={student} courses={courses} ping={ping} setping={setping}/></div></Tab.Pane>
+            <Tab.Pane eventKey="3"><div style={{padding:'10px'}}><Listmorecourses user={student} courses={courses} ping={ping} setping={setping}/></div></Tab.Pane>
             <Tab.Pane eventKey="4"><div style={{padding:'10px'}}><Editprofile user={student} ping={ping} setping={setping}/></div></Tab.Pane>
             {/* <Tab.Pane eventKey="5"><div style={{padding:'10px'}}><UpdatPassword user={student} /></div></Tab.Pane> */}
           </Tab.Content>
